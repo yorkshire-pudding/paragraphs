@@ -161,6 +161,11 @@ function paragraphs_field_multiple_value_form($field, $instance, $langcode, $ite
   }
   $field_elements['#attached']['js'][] = backdrop_get_path('module', 'paragraphs') . '/js/paragraphs_actions.js';
 
+  // Attach any paragraph specific stylesheets from the default theme.
+  if ($css = _paragraphs_theme_css()) {
+    $field_elements['#attached']['css'] = $css;
+  }
+
   return $field_elements;
 }
 
